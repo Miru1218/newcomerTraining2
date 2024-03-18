@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'mod01';
+  title = '(」・ω・)」うー！(／・ω・)／にゃー！';
 }
