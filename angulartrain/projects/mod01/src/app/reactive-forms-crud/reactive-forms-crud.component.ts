@@ -1,32 +1,69 @@
+// reactive-forms-crud.component.ts
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CRUDCategory } from '../crudcategory';
 
 @Component({
   selector: 'app-reactive-forms-crud',
   templateUrl: './reactive-forms-crud.component.html',
-  styles: [
-  ]
+  styleUrls: []
 })
 export class ReactiveFormsCrudComponent {
-  public capacity = ['5人', '10人', '20人', '30人', '40人']
-  public meetingRoomForm: FormGroup;
+  public salary = ['10000', '20000', '30000', '40000', '50000'];
+  public reactiveFormsCRUD: FormGroup;
+  public crudcategories: CRUDCategory[] = [];
   public crudcategory: CRUDCategory;
+  public isEditMode: boolean = false;
+  public selectedCategoryIndex: number = -1;
+  public isFormVisible: boolean = false;
+
   constructor(public builder: FormBuilder) {
+    this.crudcategory = new CRUDCategory(0, '', '', '', '');
 
-    this.crudcategory = new CRUDCategory(
-      101, '哥多華', this.capacity[2], false, true);
-
-    this.meetingRoomForm = this.builder.group({
-      'id': ['', [Validators.required]],
-      'name': ['', [Validators.required]],
-      "size": [''], 'projector': [''], 'TV': ['']
+    this.reactiveFormsCRUD = this.builder.group({
+      'name': ['', Validators.required],
+      'country': ['', Validators.required],
+      'salary': ['', Validators.required],
+      'email': ['', [Validators.required, Validators.email]]
     });
+
+    this.crudcategories.push(
+      new CRUDCategory(1, 'John', 'USA', '20000', 'john@example.com'),
+      new CRUDCategory(2, 'Emily', 'Canada', '30000', 'emily@example.com'),
+      new CRUDCategory(3, 'David', 'UK', '40000', 'david@example.com')
+    );
   }
-  ngOnInit(): void {
-    this.meetingRoomForm.setValue(this.meetingRoom);
-  }
+
   onSubmit() {
-    this.meetingRoom = this.meetingRoomForm.value;
+    if (this.reactiveFormsCRUD.valid) {
+      if (this.isEditMode) {
+        this.crudcategories[this.selectedCategoryIndex] = this.reactiveFormsCRUD.value;
+        this.isEditMode = false;
+      } else {
+        this.crudcategories.push(this.reactiveFormsCRUD.value);
+      }
+      this.reactiveFormsCRUD.reset();
+    }
+  }
+
+  editCategory(index: number) {
+    this.isEditMode = true;
+    this.selectedCategoryIndex = index;
+    this.reactiveFormsCRUD.patchValue(this.crudcategories[index]);
+  }
+
+  deleteCategory(index: number) {
+    this.crudcategories.splice(index, 1);
+  }
+  getTotalSalary(): number {
+    let total = 0;
+    for (let category of this.crudcategories) {
+      total += parseInt(category.salary);
+    }
+    return total;
+  }
+
+  toggleFormVisibility() {
+    this.isFormVisible = !this.isFormVisible;
   }
 }

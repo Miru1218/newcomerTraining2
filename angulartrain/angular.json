@@ -113,6 +113,7 @@
               "projects/mod01/src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "projects/mod01/src/styles.css"
             ],
             "scripts": []

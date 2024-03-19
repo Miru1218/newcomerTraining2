@@ -1,3 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+th {
+    text-align: center;
+}
+tbody {
+    text-align: center;
+}
+tbody td {
+    vertical-align: middle;
+}

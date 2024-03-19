@@ -1,1 +1,66 @@
-<p>reactive-forms-crud works!</p>
+<div class="scroll-container" style="height: 600px; overflow-y: auto;">
+    <div class="container">
+        <button *ngIf="!isFormVisible" class="btn btn-info" (click)="toggleFormVisibility()">
+            展開表單
+        </button>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Salary</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of crudcategories; let i = index">
+                        <td>{{ category.name }}</td>
+                        <td>{{ category.country }}</td>
+                        <td>{{ category.salary }}</td>
+                        <td>{{ category.email }}</td>
+                        <td>
+                            <button (click)="editCategory(i)" class="btn btn-primary">Edit</button>
+                        </td>
+                        <td>
+                            <button (click)="deleteCategory(i)" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"><strong>Total Salary</strong></td>
+                        <td class="text-center"><strong>{{ getTotalSalary() }}</strong></td>
+                        <td colspan="3"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <form *ngIf="isFormVisible" [formGroup]="reactiveFormsCRUD" (ngSubmit)="onSubmit()">
+            <H1>Add user</H1>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" formControlName="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="name">Country</label>
+                <input type="text" formControlName="country" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="size">Salary</label>
+                <select class="form-control" formControlName="salary">
+                    <option *ngFor="let cap of salary" [value]="cap">{{cap}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Email</label>
+                <input type="text" formControlName="email" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success"><i class="fa-solid fa-pen"></i>{{ isEditMode ? 'Save' : 'Add' }}</button>
+            <button type="button" class="btn btn-danger" (click)="toggleFormVisibility()">取消</button>
+        </form>
+    </div>
+</div>
