@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CRUDCategory } from '../crudcategory';
 
@@ -7,17 +7,19 @@ import { CRUDCategory } from '../crudcategory';
   templateUrl: './reactive-forms-crud.component.html',
   styleUrls: []
 })
-export class ReactiveFormsCrudComponent {
+
+export class ReactiveFormsCrudComponent implements OnInit {
   public salary = ['10000', '20000', '30000', '40000', '50000'];
-  public reactiveFormsCRUD: FormGroup;
+  public reactiveFormsCRUD!: FormGroup;
   public crudcategories: CRUDCategory[] = [];
   public isEditMode: boolean = false;
   public selectedCategoryIndex: number = -1;
   public isFormVisible: boolean = false;
   public searchText: string = '';
 
-  constructor(public builder: FormBuilder) {
+  constructor(public builder: FormBuilder) { }
 
+  ngOnInit() {
     this.reactiveFormsCRUD = this.builder.group({
       'name': ['', Validators.required],
       'country': ['', Validators.required],
@@ -65,6 +67,16 @@ export class ReactiveFormsCrudComponent {
     }
     return total;
   }
+
+  getTotalDisplayedSalary(): number {
+    let total = 0;
+    for (let category of this.crudcategories) {
+      if (category.name.toLowerCase().includes(this.searchText.toLowerCase())) {
+        total += parseInt(category.salary);
+      }
+    }
+    return total;
+  }  
 
   toggleFormVisibility() {
     this.isFormVisible = !this.isFormVisible;
