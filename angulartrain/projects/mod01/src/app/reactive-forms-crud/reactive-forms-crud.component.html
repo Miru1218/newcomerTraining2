@@ -1,8 +1,24 @@
 <div class="scroll-container" style="height: 600px; overflow-y: auto;">
     <div class="container">
-        <button *ngIf="!isFormVisible" class="btn btn-info" (click)="toggleFormVisibility()">
-            展開表單
-        </button>
+        <div class="row">
+            <div class="col-md-6">
+                <button *ngIf="!isFormVisible" class="btn btn-success" (click)="toggleFormVisibility()">
+                    <i class="fa-solid fa-plus"></i> Add more user
+                </button>
+            </div>
+            <div class="col-md-6">
+                <form [formGroup]="reactiveFormsCRUD">
+                    <div class="form-group row">
+                        <label for="search" class="col-sm-6 col-form-label text-right">Search by name:</label>
+                        <div class="col-sm-6">
+                            <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}"
+                                class="form-control" placeholder="Type name to search">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -17,16 +33,18 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let category of crudcategories; let i = index">
-                        <td>{{ category.name }}</td>
-                        <td>{{ category.country }}</td>
-                        <td>{{ category.salary }}</td>
-                        <td>{{ category.email }}</td>
-                        <td>
-                            <button (click)="editCategory(i)" class="btn btn-primary">Edit</button>
-                        </td>
-                        <td>
-                            <button (click)="deleteCategory(i)" class="btn btn-danger">Delete</button>
-                        </td>
+                        <ng-container *ngIf="category.name.toLowerCase().includes(searchText.toLowerCase())">
+                            <td>{{ category.name }}</td>
+                            <td>{{ category.country }}</td>
+                            <td>{{ category.salary }}</td>
+                            <td>{{ category.email }}</td>
+                            <td>
+                                <button (click)="editCategory(i)" class="btn btn-primary">Edit</button>
+                            </td>
+                            <td>
+                                <button (click)="deleteCategory(i)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </ng-container>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -38,29 +56,51 @@
                 </tfoot>
             </table>
         </div>
-
         <form *ngIf="isFormVisible" [formGroup]="reactiveFormsCRUD" (ngSubmit)="onSubmit()">
             <H1>Add user</H1>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" formControlName="name" class="form-control">
+                <input type="text" formControlName="name" class="form-control" placeholder='Edit name' required>
+                <div *ngIf="reactiveFormsCRUD.controls['name'].errors?.['required'] && reactiveFormsCRUD.controls['name'].touched"
+                    class="alert alert-danger mt-2" role="alert">
+                    Please input Name
+                </div>
             </div>
             <div class="form-group">
                 <label for="name">Country</label>
-                <input type="text" formControlName="country" class="form-control">
+                <input type="text" formControlName="country" class="form-control" placeholder='Edit country' required>
+                <div *ngIf="reactiveFormsCRUD.controls['country'].errors?.['required'] && reactiveFormsCRUD.controls['country'].touched"
+                    class="alert alert-danger mt-2" role="alert">
+                    Please input country
+                </div>
             </div>
             <div class="form-group">
                 <label for="size">Salary</label>
-                <select class="form-control" formControlName="salary">
-                    <option *ngFor="let cap of salary" [value]="cap">{{cap}}</option>
+                <select class="form-control" formControlName="salary" required>
+                    <option value="">Edit salary</option>
+                    <option *ngFor="let amount of salary" [value]="amount">{{ amount }}</option>
                 </select>
+                <div *ngIf="reactiveFormsCRUD.controls['salary'].errors?.['required'] && reactiveFormsCRUD.controls['salary'].touched"
+                    class="alert alert-danger mt-2" role="alert">
+                    Please select salary
+                </div>
             </div>
             <div class="form-group">
                 <label for="name">Email</label>
-                <input type="text" formControlName="email" class="form-control">
+                <input type="email" formControlName="email" class="form-control" placeholder="Edit email" required>
+                <div *ngIf="reactiveFormsCRUD.controls['email'].errors?.['required'] && reactiveFormsCRUD.controls['email'].touched"
+                    class="alert alert-danger mt-2" role="alert">
+                    Please input email
+                </div>
+                <div *ngIf="reactiveFormsCRUD.controls['email'].errors?.['email'] && reactiveFormsCRUD.controls['email'].touched"
+                    class="alert alert-danger mt-2" role="alert">
+                    Please input a valid email
+                </div>
             </div>
-            <button type="submit" class="btn btn-success"><i class="fa-solid fa-pen"></i>{{ isEditMode ? 'Save' : 'Add' }}</button>
-            <button type="button" class="btn btn-danger" (click)="toggleFormVisibility()">取消</button>
+            <button type="submit" class="btn btn-primary not-allowed" [disabled]="reactiveFormsCRUD.invalid">
+                <i class="fa-solid fa-pen"></i>{{ isEditMode ? 'Save Change' : 'Add' }}
+            </button>
+            <button type="button" class="btn btn-primary" (click)="toggleFormVisibility()">Cancel</button>
         </form>
     </div>
 </div>

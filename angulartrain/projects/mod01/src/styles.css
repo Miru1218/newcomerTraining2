@@ -7,3 +7,23 @@ tbody {
 tbody td {
     vertical-align: middle;
 }
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    margin-right: 10px; 
+}
+
+.btn-primary:last-child {
+    margin-right: 0; 
+}
+
+.col-form-label.text-right {
+    text-align: right;
+}
+
+.not-allowed[disabled] {
+    cursor: not-allowed;
+    pointer-events:auto;
+}
