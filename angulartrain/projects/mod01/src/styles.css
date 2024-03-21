@@ -1,22 +1,30 @@
+/* Chorme 滾動條 隱藏 */
+body::-webkit-scrollbar {
+    display: none;
+}
+
 th {
     text-align: center;
 }
+
 tbody {
     text-align: center;
 }
+
 tbody td {
     vertical-align: middle;
 }
+
 .form-group {
     margin-bottom: 20px;
 }
 
 .btn-primary {
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .btn-primary:last-child {
-    margin-right: 0; 
+    margin-right: 0;
 }
 
 .col-form-label.text-right {
@@ -25,5 +33,72 @@ tbody td {
 
 .not-allowed[disabled] {
     cursor: not-allowed;
-    pointer-events:auto;
+    pointer-events: auto;
+}
+
+hr {
+    margin-bottom: 0;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+/* 香水網站 PC */
+
+/* 先用bootstrap的container */
+/* .custom-container {
+    margin-left: 405px;
+    margin-right: 405px;
+} */
+
+.banner {
+    color: #fff;
+    background-image: url("../src/assets/image/image1.jpg");
+    background-size: 125% 125%;
+    background-position: -160px -170px;
+}
+
+.bannerContent {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.bannerContent .bannerText {
+    width: 445px;
+    padding-top: 295px;
+    padding-bottom: 295px;
+}
+
+.bannerContent h2 {
+    line-height: 60px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.bannerContent p {
+    line-height: 36px;
+    font-size: 24px;
+}
+
+.bannerContent button {
+    background: rgba(255, 255, 255, 0);
+    color: #fff;
+    margin-top: 16px;
+    font-size: 28px;
+    border-radius: 30px;
+    border: 2px solid #FFFFFF;
+    width: 350px;
+    height: 60px;
+}
+
+.bannerContent button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
 }
