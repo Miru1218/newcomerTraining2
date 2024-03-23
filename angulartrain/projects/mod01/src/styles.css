@@ -50,24 +50,23 @@ hr {
 
 /* 香水網站 PC */
 
-/* 先用bootstrap的container */
-/* .custom-container {
-    margin-left: 405px;
-    margin-right: 405px;
-} */
+.container {
+    max-width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+}
 
 .banner {
     color: #fff;
-    background-image: url("https://lh3.googleusercontent.com/fife/ALs6j_HaAf057xx--sMbWGOWpWFeDcMiRTofsoQnt-ZZ9Ia5ZyC6Dax44357kX0IQD4wvYYPAZhAaPdgl1673pSuBBYoe31TMXsv9qHhPggHe3WwUzO_WsZjWB7MDHE6uOI68d6Dybx39sJVynVzPr-U-HNR6B_TZobL8r0Gx4ZPE6EhycrSvHT4iFgqPWSIuytPMDKp8dn4nxV_6P1Ba1nW0oXpFV6bc6K4pHQJ0BnxFP9kGW1v9tooEMZFQsgH9CGfRHIYUM1DPtyUdtxGn970OP-QCdM5TnOvb9vy6iD2IKE23C6DW8PO5crIx0BD_0j3Ow_QltVJjL2QJh8mZoIhy4g-LTrIFhcjDbKaqgQwNuPAFGc-gjqOsuKg6fZfYhj9Xe_3wwa1CB5D39ZegS6D8NjoI7o1mhrZrYY8CqctMAI2qZRTlI4kXfHZ6ZE6TCA-1tcqv6ulmcWUfyzsV20QpoybSsfA3rFCUQc2ncGhG7lkpXozauzrOhEZiWF27WeIIz-BAUnxKGLSJsqv2AgdUyMw7zmF1otoARG_QHD0IVWdx9jW-YuR33j5Rp2wU5EOjcr1WYwYl31RbxoFKQClUW4yqSX7GwPsS8oYs0Slh7e8wyAUPKAct4f_ZOOpNdq1xFG2wb1LsQ1RWgbXXcoTxLudyDQCJcsIYrtmvXTPS39r8HzMjaJ304z7i4dovWGZRR9egNf69VvcczuVRMDLVUz244dAJcZuwLG2FLd1MEfoiJWdUmRxzHCyNOLjT1hKb9LsZYMLFN9LXT6hEjQ5Wih-Tt1gejjso0sChMEuI4EvhHbKZoFKSwi3daA3hIMInjqdohMENfP5-r62wZXZ0JcIC0Vq6_NrfJMffyTJ4AAJrcYvh9Un7LEVbJ2YrK3-DQqv-O-FLs35tUxOIhWoIjzB_9r61mfJbNRK5-F7wAp54TVVDkjyzrqkvxgBmMlBqJ5IQYPQtNOP3iMUYtt0F_ZwDyUGSvJym8uw7vhy5tJnodEBrXQOgghIVBCr6haKx9U29TQRtM4lLENo3dSELeirbMdHPraS64J5Y-HvxJoxl1j22DyWw227_AzYwIKi2bpHohqTVNhwL5agx_m0Nt-4UuV1_3Bm8eF6XnhfeMCywWBn_eTsMcWtCixKduYf4DGwFaxd9Cnj1RtVPjoA5QDebXZOjCqbBOY1J1ImWU_4FIjAi1d4rStnsPRBZPEdOWar--_FPk_JZ9FjqaEpKSx1AFqBm5sle95VpKR3T9qS9DX1Nk91hmtk5OrXSL3jq6Ur9cln5o6S7yyzf_tMf0Nqbm8p2yi7zJm-7ueAtuRYaWGZ-ijOoMk-MNnAFMOpZRKhnaSOy0W2ujv_zBvNbHMcMGN3CjPWTdnk5ht8y3bsk5pipgjes0tpdvPoVsMfq_sp3mCwzg4r_czPJb6D7Iu9LN2k4uiVJedpIUJY8PKpEoWLwj2-Bb-ziSoXSYFWgY5yiDuvpTkVa9EPCMur23-G1RHXD67k9aoEBHCi6jjBwzOmuA3K0hATHuJcph-P0CT0ZUowmxlq1JDj30HJCuoOh_Kz_-zXoTSFU1AT1j3UcT-9FytIu-ZLDG5HubezUEYVtTZbplD_DPxaOw=w1920-h522");
-    background-size: 125% 125%;
-    background-position: -160px -170px;
+    background-image: url("https://raw.githubusercontent.com/Miru1218/test/main/image1.jpg");
+    min-height: calc(100vh - 56px);
+    background-size: cover
 }
 
 .bannerContent {
     display: flex;
     justify-content: flex-end;
-    padding-left: 0;
-    padding-right: 0;
 }
 
 .bannerContent .bannerText {
@@ -101,4 +100,69 @@ hr {
 .bannerContent button:hover {
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
+}
+
+.row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.productPic {
+    width: 555px;
+    height: 555px;
+}
+
+.productPic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0;
+}
+
+.productPicBottom {
+    width: 555px;
+    height: 1080px;
+}
+
+.productPicBottom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.productText {
+    padding: 110px;
+}
+
+.productText a {
+    line-height: 20px;
+    color: #AC8A46;
+    text-decoration: none;
+}
+
+.productText .preventive-maintenance-level {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.productText .normal-text {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 52px;
+}
+
+.productText button {
+    width: 350px;
+    height: 60px;
+    color: #000;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 30px;
+    border: 2px solid #000;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.productText button:hover {
+    background: rgba(194, 192, 192, 0.6);
 }
