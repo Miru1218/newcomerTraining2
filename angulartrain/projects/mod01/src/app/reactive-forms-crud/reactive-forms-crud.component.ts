@@ -16,6 +16,7 @@ export class ReactiveFormsCrudComponent implements OnInit {
   public selectedCategoryIndex: number = -1;
   public isFormVisible: boolean = false;
   public searchText: string = '';
+  public isDeleteDisabled: boolean = false;
 
   constructor(public builder: FormBuilder) { }
 
@@ -51,12 +52,17 @@ export class ReactiveFormsCrudComponent implements OnInit {
 
   editCategory(index: number) {
     this.isEditMode = true;
+    this.isFormVisible = true;
     this.selectedCategoryIndex = index;
     this.reactiveFormsCRUD.patchValue(this.crudcategories[index]);
-    this.isFormVisible = true;
+    this.isDeleteDisabled = true;
   }
 
   deleteCategory(index: number) {
+    if (index === this.selectedCategoryIndex) {
+      this.isFormVisible = false;
+      this.selectedCategoryIndex = -1;
+    }
     this.crudcategories.splice(index, 1);
   }
 
@@ -76,7 +82,7 @@ export class ReactiveFormsCrudComponent implements OnInit {
       }
     }
     return total;
-  }  
+  }
 
   toggleFormVisibility() {
     this.isFormVisible = !this.isFormVisible;
@@ -86,7 +92,16 @@ export class ReactiveFormsCrudComponent implements OnInit {
       if (salaryControl) {
         salaryControl.setValue('');
       }
+      this.isEditMode = false;
+      this.isDeleteDisabled = false;
     }
+  }
+
+  addMode() {
+    this.isFormVisible = true;
+    this.reactiveFormsCRUD.reset();
+    this.isEditMode = false;
+    this.isDeleteDisabled = true;
   }
 
 }
