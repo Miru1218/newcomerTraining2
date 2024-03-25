@@ -17,6 +17,8 @@ export class ReactiveFormsCrudComponent implements OnInit {
   public isFormVisible: boolean = false;
   public searchText: string = '';
   public isDeleteDisabled: boolean = false;
+  public isSaveButtonDisabled: boolean = false;
+
 
   constructor(public builder: FormBuilder) { }
 
@@ -56,6 +58,7 @@ export class ReactiveFormsCrudComponent implements OnInit {
     this.selectedCategoryIndex = index;
     this.reactiveFormsCRUD.patchValue(this.crudcategories[index]);
     this.isDeleteDisabled = true;
+    this.isSaveButtonDisabled = false;
   }
 
   deleteCategory(index: number) {
@@ -94,6 +97,7 @@ export class ReactiveFormsCrudComponent implements OnInit {
       }
       this.isEditMode = false;
       this.isDeleteDisabled = false;
+      this.isSaveButtonDisabled = false;
     }
   }
 

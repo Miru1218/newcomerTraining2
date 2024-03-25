@@ -172,7 +172,7 @@
         <button
           type="submit"
           class="btn btn-primary not-allowed"
-          [disabled]="reactiveFormsCRUD.invalid || isEditMode"
+          [disabled]="reactiveFormsCRUD.invalid"
         >
           <i class="fa-solid fa-pen"></i>
           {{ isEditMode ? "Save Change" : "Add" }}
