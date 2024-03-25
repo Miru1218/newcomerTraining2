@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CrudService } from '../services/crud.service'; 
+import { CrudService } from '../services/crud.service';
 import { CRUDCategory } from '../crudcategory';
 
 @Component({
@@ -44,13 +44,16 @@ export class ReactiveFormsCrudComponent implements OnInit {
     }
 
     if (this.isEditMode) {
-      this.crudService.updateCrudCategory(this.selectedCategoryIndex, this.reactiveFormsCRUD.value); // 使用 CrudService 更新
+      this.crudService.updateCrudCategory(this.selectedCategoryIndex, this.reactiveFormsCRUD.value);
       this.isEditMode = false;
     } else {
-      this.crudService.addCrudCategory(this.reactiveFormsCRUD.value); // 使用 CrudService 添加数据
+      this.crudService.addCrudCategory(this.reactiveFormsCRUD.value);
     }
     this.reactiveFormsCRUD.reset();
+
+    this.toggleFormVisibility();
   }
+
 
   editCategory(index: number) {
     this.isEditMode = true;
