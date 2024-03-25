@@ -69,14 +69,6 @@ export class ReactiveFormsCrudComponent implements OnInit {
     this.crudcategories.splice(index, 1);
   }
 
-  getTotalSalary(): number {
-    let total = 0;
-    for (let category of this.crudcategories) {
-      total += parseInt(category.salary);
-    }
-    return total;
-  }
-
   getTotalDisplayedSalary(): number {
     let total = 0;
     for (let category of this.crudcategories) {
