@@ -1,168 +1,381 @@
 /* Chorme 滾動條 隱藏 */
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
+}
+
+ol,
+ul {
+  list-style: none;
 }
 
 th {
-    text-align: center;
+  text-align: center;
 }
 
 tbody {
-    text-align: center;
+  text-align: center;
 }
 
 tbody td {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .btn-primary {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .btn-primary:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .col-form-label.text-right {
-    text-align: right;
+  text-align: right;
 }
 
 .not-allowed[disabled] {
-    cursor: not-allowed;
-    pointer-events: auto;
+  cursor: not-allowed;
+  pointer-events: auto;
 }
 
 hr {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .margin-top-20 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .overflow-hidden {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* 香水網站 PC */
 
 .container {
-    max-width: 1140px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin: 0 auto;
+  max-width: 1140px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 0 auto;
 }
 
+.custom-link {
+    margin-right: 10px;
+  }
+
 .banner {
-    color: #fff;
-    background-image: url("https://raw.githubusercontent.com/Miru1218/test/main/image1.jpg");
-    min-height: calc(100vh - 56px);
-    background-size: cover
+  color: #fff;
+  background-image: url("https://raw.githubusercontent.com/Miru1218/test/main/image1.jpg");
+  min-height: calc(100vh - 56px);
+  background-size: cover;
 }
 
 .bannerContent {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .bannerContent .bannerText {
-    width: 445px;
-    padding-top: 295px;
-    padding-bottom: 295px;
+  width: 445px;
+  padding-top: 295px;
+  padding-bottom: 295px;
 }
 
 .bannerContent h2 {
-    line-height: 60px;
-    font-weight: bold;
-    font-size: 40px;
+  line-height: 60px;
+  font-weight: bold;
+  font-size: 40px;
 }
 
 .bannerContent p {
-    line-height: 36px;
-    font-size: 24px;
+  line-height: 36px;
+  font-size: 24px;
 }
 
 .bannerContent button {
-    background: rgba(255, 255, 255, 0);
-    color: #fff;
-    margin-top: 16px;
-    font-size: 28px;
-    border-radius: 30px;
-    border: 2px solid #FFFFFF;
-    width: 350px;
-    height: 60px;
+  background: rgba(255, 255, 255, 0);
+  color: #fff;
+  margin-top: 16px;
+  font-size: 28px;
+  border-radius: 30px;
+  border: 2px solid #ffffff;
+  width: 350px;
+  height: 60px;
 }
 
 .bannerContent button:hover {
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 }
 
 .row-reverse {
-    display: flex;
-    flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .productPic {
-    width: 555px;
-    height: 555px;
+  width: 555px;
+  height: 555px;
 }
 
 .productPic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0;
 }
 
 .productPicBottom {
-    width: 555px;
-    height: 1080px;
+  width: 555px;
+  height: 1080px;
 }
 
 .productPicBottom img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .productText {
-    padding: 110px;
+  padding: 110px;
 }
 
 .productText a {
-    line-height: 20px;
-    color: #AC8A46;
-    text-decoration: none;
+  line-height: 20px;
+  color: #ac8a46;
+  text-decoration: none;
 }
 
 .productText .preventive-maintenance-level {
-    font-size: 24px;
-    line-height: 36px;
+  font-size: 24px;
+  line-height: 36px;
 }
 
 .productText .normal-text {
-    font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 52px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 52px;
 }
 
 .productText button {
-    width: 350px;
-    height: 60px;
-    color: #000;
-    font-size: 20px;
-    background: rgba(255, 255, 255, 0);
-    border-radius: 30px;
-    border: 2px solid #000;
-    margin-top: 8px;
-    cursor: pointer;
+  width: 350px;
+  height: 60px;
+  color: #000;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 30px;
+  border: 2px solid #000;
+  margin-top: 8px;
+  cursor: pointer;
 }
 
 .productText button:hover {
-    background: rgba(194, 192, 192, 0.6);
+  background: rgba(194, 192, 192, 0.6);
+}
+
+/*showProduct*/
+.showProductBg {
+  background-color: #e0e0e0;
+}
+
+.product-container {
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.product-item {
+  width: 33%;
+  margin: 0 15px;
+}
+
+.product-item .showProductPic {
+  width: 100%;
+  height: 540px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.product-item .pic1 {
+  background-image: url("https://raw.githubusercontent.com/Miru1218/test/main/index6.jpg");
+}
+
+.product-item .pic2 {
+  background-image: url("https://raw.githubusercontent.com/Miru1218/test/main/index7.jpg");
+}
+
+.product-item .pic3 {
+  background-image: url("https://raw.githubusercontent.com/Miru1218/test/main/index8.jpg");
+}
+
+.product-item h3 {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: bold;
+}
+
+.product-item p {
+  margin-bottom: 16px;
+  margin-top: 5px;
+  line-height: 24px;
+}
+
+.product-item del {
+  color: #8d8d8d;
+  margin-left: 8px;
+}
+
+.product-item .soldout {
+  background-color: #000;
+  opacity: 0.1;
+  color: #fff;
+  font-size: 24px;
+  line-height: 540px;
+  text-align: center;
+}
+
+/*showProduct pad*/
+
+.bottle-recycling {
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.bottle-recycling .bottlePic img {
+  width: 100%;
+  margin-right: 15px;
+}
+
+.bottle-recycling .bottleText {
+  width: 33%;
+  padding: 60px 15px;
+}
+
+.bottle-recycling h2 {
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: bold;
+}
+
+.bottle-recycling .text {
+  line-height: 24px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.bottle-recycling a {
+  line-height: 24px;
+  color: #ac8a46;
+  text-decoration: none;
+}
+
+.bottle-recycling a:hover {
+  color: #cfb889;
+}
+
+.subscribe {
+  width: 100%;
+  height: 600px;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("https://hexschool.github.io/webLayoutTraining1st/perfume-week6/index10.jpg");
+  background-repeat: no-repeat;
+}
+
+.subscribe .bannerText {
+  padding-top: 312px;
+}
+
+.subscribe .bannerText p {
+  color: #8d8d8d;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.subscribe .mail {
+  display: flex;
+  align-items: center;
+}
+
+.subscribe input {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 16px;
+  border: 2px solid #916000;
+  border-radius: 4px 0px 0px 4px;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #8d8d8d;
+}
+
+.subscribe a {
+  background-color: #916000;
+  padding: 22px;
+  margin-left: -5px;
+  color: #fff;
+  border-radius: 0px 4px 4px 0px;
+  text-decoration: none;
+}
+
+.subscribe a:hover {
+  background-color: #784f00;
+}
+
+.footerBg {
+  background-color: #916000;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.footerBg .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+/* .footerBg .logo {
+  display: flex;
+} */
+
+.footerBg p {
+    align-items: center;
+
+  padding-top: 11px;
+  font-size: 14px;
+  margin-left: 20px;
+  line-height: 21px;
+}
+
+.footerBg .menu a {
+  display: block;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  padding-top: 5px;
+
+}
+
+.menu li a {
+  position: relative;
+  display: block;
+  padding-left: 32px;
+  color: #8d8d8d;
+}
+
+.menu li a:hover {
+  color: #ac8a46;
+}
+
+.menu em {
+  display: none;
 }

@@ -8,10 +8,21 @@
         />
       </a>
     </div>
-    <button class="navbar-toggler" type="button">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <!-- 手機版導覽列 -->
+    <div class="d-lg-none ">
+      <ul class="d-flex justify-content-center align-items-center mt-3">
+        <li class=" ">
+          <a class="nav-link custom-link" href="#"><i class="fas fa-shopping-cart"></i>Cart(3)</a>
+        </li>
+        <li class=" ">
+          <a class="nav-link" href="#"><i class="fa-solid fa-bars fa-lg"></i></a>
+        </li>
+      </ul>
+    </div>
+    
+
+    <!-- 電腦版導覽列 -->
+    <div class="collapse navbar-collapse justify-content-end d-none d-lg-block">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="product.html"
@@ -132,32 +143,93 @@
         prioritize the most important operations that should be performed
         immediately.
       </p>
-      <button type="button"><strong>Plan a free online training</strong></button>
+      <button type="button">
+        <strong>Plan a free online training</strong>
+      </button>
     </div>
   </div>
 </div>
 
 <div class="showProductBg">
   <div class="container">
-     <div class="showProduct">
-         <div class="showProductContent">
-             <div class="showProductPic pic1"></div>
-             <h3>Poppy & Barley</h3>
-             <p>Jo Malone</p>
-             <span>NT$1,380</span><span><del>NT$1,580</del></span>
-         </div>
-         <div class="showProductContent">
-             <div class="showProductPic pic2"></div>
-             <h3>Body Wash</h3>
-             <p>Curology</p>
-             <span>NT$1,580</span>
-         </div>
-         <div class="showProductContent">
-             <div class="showProductPic pic3"><div class="soldout">Sold out</div></div>
-             <h3>Apple Cider Vinegar Capsule</h3>
-             <p>Tonik</p>
-             <span>NT$1,580</span>
-         </div>
-     </div>
+    <div class="product-container">
+      <div class="product-item">
+        <div class="showProductPic pic1"></div>
+        <h3>Poppy & Barley</h3>
+        <p>Jo Malone</p>
+        <span>NT$1,380</span><span><del>NT$1,580</del></span>
+      </div>
+      <div class="product-item">
+        <div class="showProductPic pic2"></div>
+        <h3>Body Wash</h3>
+        <p>Curology</p>
+        <span>NT$1,580</span>
+      </div>
+      <div class="product-item">
+        <div class="showProductPic pic3">
+          <div class="soldout">Sold out</div>
+        </div>
+        <h3>Apple Cider Vinegar Capsule</h3>
+        <p>Tonik</p>
+        <span>NT$1,580</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="bottle-recycling">
+    <div class="bottlePic col-8">
+      <img
+        src="https://raw.githubusercontent.com/Miru1218/test/main/index9.jpg"
+        alt="index9"
+      />
+    </div>
+    <div class="bottleText col-4">
+      <h2>Bottle-Recycling</h2>
+      <h6 class="title">Recycle your used empty bottles and be rewarded!</h6>
+      <p class="text">
+        For the past 10 years, we have collected over 800,000 bottles through
+        Empty Bottle Recycling Campaign and planted more than 860 pine trees for
+        a better environment.For the past 10 years, we have collected over
+        800,000 bottles through Empty Bottle Recycling Campaign and planted more
+        than 860 pine trees for a better environment.
+      </p>
+      <a href="#">查看更多</a>
+    </div>
+  </div>
+</div>
+
+<div class="subscribe">
+  <div class="container">
+    <div class="bannerText">
+      <p>
+        記得<br />
+        訂閱以獲取更多資訊！
+      </p>
+      <div class="mail">
+        <input type="email" placeholder="Your email address" required />
+        <a href="#" class="submit">Subscribe</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footerBg">
+  <div class="footer container">
+    <div class="logo d">
+      <a href="index.html">
+        <img
+          src="https://raw.githubusercontent.com/Miru1218/test/main/d’Perfumewhite.png"
+          alt="d'Perfume"
+        />
+      </a>
+      <p>© 2020. All Rights Reserved.</p>
+    </div>
+    <ul class="menu">
+      <li><a href="product.html">Product</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
   </div>
 </div>
