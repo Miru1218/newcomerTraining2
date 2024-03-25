@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CrudService } from '../services/crud.service'; 
 import { CRUDCategory } from '../crudcategory';
 
 @Component({
@@ -7,7 +8,6 @@ import { CRUDCategory } from '../crudcategory';
   templateUrl: './reactive-forms-crud.component.html',
   styleUrls: []
 })
-
 export class ReactiveFormsCrudComponent implements OnInit {
   public salary = ['10000', '20000', '30000', '40000', '50000'];
   public reactiveFormsCRUD!: FormGroup;
@@ -19,8 +19,10 @@ export class ReactiveFormsCrudComponent implements OnInit {
   public isDeleteDisabled: boolean = false;
   public isSaveButtonDisabled: boolean = false;
 
-
-  constructor(public builder: FormBuilder) { }
+  constructor(
+    public builder: FormBuilder,
+    private crudService: CrudService // 注入 CrudService
+  ) { }
 
   ngOnInit() {
     this.reactiveFormsCRUD = this.builder.group({
@@ -30,24 +32,22 @@ export class ReactiveFormsCrudComponent implements OnInit {
       'email': ['', [Validators.required, Validators.email]],
     });
 
-    this.crudcategories.push(
-      new CRUDCategory(1, 'John', 'USA', '20000', 'john@example.com'),
-      new CRUDCategory(2, 'Emily', 'Canada', '30000', 'emily@example.com'),
-      new CRUDCategory(3, 'David', 'UK', '40000', 'david@example.com')
-    );
+    // 從 CrudService 獲取初始數據
+    this.crudService.getCrudCategories().subscribe(categories => {
+      this.crudcategories = categories;
+    });
   }
 
   onSubmit() {
-
     if (this.reactiveFormsCRUD.invalid) {
       return;
     }
 
     if (this.isEditMode) {
-      this.crudcategories[this.selectedCategoryIndex] = this.reactiveFormsCRUD.value;
+      this.crudService.updateCrudCategory(this.selectedCategoryIndex, this.reactiveFormsCRUD.value); // 使用 CrudService 更新
       this.isEditMode = false;
     } else {
-      this.crudcategories.push(this.reactiveFormsCRUD.value);
+      this.crudService.addCrudCategory(this.reactiveFormsCRUD.value); // 使用 CrudService 添加数据
     }
     this.reactiveFormsCRUD.reset();
   }
@@ -66,7 +66,7 @@ export class ReactiveFormsCrudComponent implements OnInit {
       this.isFormVisible = false;
       this.selectedCategoryIndex = -1;
     }
-    this.crudcategories.splice(index, 1);
+    this.crudService.deleteCrudCategory(index); // 使用 CrudService 删除
   }
 
   getTotalDisplayedSalary(): number {
@@ -99,5 +99,4 @@ export class ReactiveFormsCrudComponent implements OnInit {
     this.isEditMode = false;
     this.isDeleteDisabled = true;
   }
-
 }
