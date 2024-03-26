@@ -18,6 +18,7 @@ export class ReactiveFormsCrudComponent implements OnInit {
   public searchText: string = '';
   public isDeleteDisabled: boolean = false;
   public isSaveButtonDisabled: boolean = false;
+  public formTitle: string = 'Add user';
 
   constructor(
     public builder: FormBuilder,
@@ -62,6 +63,7 @@ export class ReactiveFormsCrudComponent implements OnInit {
     this.reactiveFormsCRUD.patchValue(this.crudcategories[index]);
     this.isDeleteDisabled = true;
     this.isSaveButtonDisabled = false;
+    this.formTitle = 'Edit user';
   }
 
   deleteCategory(index: number) {

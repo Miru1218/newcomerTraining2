@@ -94,7 +94,8 @@
         [formGroup]="reactiveFormsCRUD"
         (ngSubmit)="onSubmit()"
       >
-        <H1>Add user</H1>
+        <H1>{{ formTitle }}</H1>
+
         <div class="form-group">
           <label for="name">Name</label>
           <input
